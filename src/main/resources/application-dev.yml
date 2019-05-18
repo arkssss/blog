@@ -1,0 +1,47 @@
+debug: true
+server:
+  port: 8000
+  servlet:
+    context-path: /
+spring:
+#数据库连接
+  datasource:
+    # 数据库连接
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 12345678
+    #连接池设置
+    dbType: mysql        #数据库类型为mysql
+    initialSize: 5      #启动时初始化5个连接
+    minIdle: 5           #最小空闲连接5个
+    maxActive: 20       #最大连接数量20
+    maxWait: 60000         #获取连接等待时间60秒，超出报错
+    timeBetweenEvictionRunsMillis: 60000      #每60秒执行一次连接回收器
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: false
+    filters: stat,wall,logback
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  jpa:
+    show-sql: true
+
+  redis:
+    database: 9
+    host: 192.168.40.239
+    port: 6379
+    password: ENC(WO5Jiz/gAmFUcVWFRNcuZ34LyjzGlPD+)
+    timeout: 2000
+    jedis:
+      pool:
+        max-active: 1024
+        max-idle: 200
+        max-wait: 1000
+        min-idle: 200
+        testOnBorrow: true
+        testOnReturn: true
+

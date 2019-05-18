@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: dev
+  #把前端传过来的时间转为中国的时间格式
+  mvc:
+    date-format: yyyy-MM-dd
+  #把date类型String序列化
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+    #设置缩进
+    serialization:
+      indent-output: true
+  http:
+    encoding:
+      charset: UTF-8
+logging:
+  level:
+    root: debug
+    com:
+      along:
+        mybaits:
+          mapper: debug
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/**/*.xml
+

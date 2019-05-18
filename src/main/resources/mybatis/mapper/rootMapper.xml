@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--映射文件配置，namespace指向接口-->
+<mapper namespace="com.along.blog.mapper.RootMapper">
+
+    <resultMap id="RootResult" type="RootVO" >
+        <id column="id" property="id" javaType="Integer" />
+        <result column="username" property="username" javaType="String" />
+        <result column="password" property="password" javaType="String" />
+        <result column="power_id" property="powerId" javaType="Integer" />
+        <result column="status" property="status" javaType="Integer" />
+        <result column="create_time" property="createTime" javaType="java.util.Date" />
+    </resultMap>
+
+
+    <insert id="add" parameterType="RootVO" useGeneratedKeys="true"  keyProperty="id" >
+        insert into root (username ,password,power_id,status,create_time )
+        VALUES( #{username} , #{password} , #{powerId} , #{status} , #{createTime} ) ;
+    </insert>
+
+    <delete id="deleteById" parameterType="Integer">
+        delete from root where id = #{id} ;
+    </delete>
+
+    <update id="update" parameterType="RootVO">
+        UPDATE `root` SET `username`=#{username},`password`= #{password},
+        `power_id`=#{powerId},`status`=#{status},`create_time`=#{createTime}
+        WHERE `id` = #{id};
+    </update>
+
+    <select id="getById" parameterType="Integer" resultMap="RootResult">
+        select * from root where id = #{id} ;
+    </select>
+
+    <select id="getAll" resultMap="RootResult">
+        select * from root ;
+    </select>
+
+<!--    &lt;!&ndash; 批量新增   &ndash;&gt;-->
+<!--    <insert id="addAll" parameterType="java.util.List">-->
+<!--        insert into dept (dep_name , dep_num) VALUES-->
+<!--        <foreach collection="depts" item="dept" open="(" close=")" separator=",">-->
+<!--            #{dept.depName} , #{dept.depNum}-->
+<!--        </foreach>-->
+<!--    </insert>-->
+
+
+</mapper>
