@@ -21,5 +21,20 @@ public class AppConfig {
      */
     private String version ;
 
+    /**
+     * 加密盐
+     */
+    private String salt ;
+
+    /**
+     * 文件服务器地址
+     */
+    private String filePath ;
+
+    /**
+     * 默认头像的地址
+     */
+    private String avatar ;
+
 
 }

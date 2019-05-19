@@ -30,17 +30,3 @@ spring:
   jpa:
     show-sql: true
 
-  redis:
-    database: 9
-    host: 192.168.40.239
-    port: 6379
-    password: ENC(WO5Jiz/gAmFUcVWFRNcuZ34LyjzGlPD+)
-    timeout: 2000
-    jedis:
-      pool:
-        max-active: 1024
-        max-idle: 200
-        max-wait: 1000
-        min-idle: 200
-        testOnBorrow: true
-        testOnReturn: true
